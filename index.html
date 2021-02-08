@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+
+<script>
+  $(document).ready(function() { 
+    $('input[type="text"]').on('keyup', function(e) {
+        $("#full_name").css("border", "0px solid");
+        if($('input[type="text"]').val().length<=3){
+            console.log("Please enter a valid name");   
+            $('#fname').css("visibility","visible");
+            $("#full_name_legend").css('visibility', "visible");
+            $("#full_name_legend").css('color', "red");            
+            $("#full_name_fieldset").css('border', "1px solid red");    
+            
+        }else{
+            console.log("Coerrect Name");
+            $('#fname').css("visibility","hidden");
+            $("#full_name_legend").css('visibility', "visible");
+            $("#full_name_legend").css('color', "#cfd8dc");
+            $("#full_name_fieldset").css('border', "1px solid #cfd8dc");
+        }
+    });
+    $('input[type="email"]').on('keyup', function(e) {
+        
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        $('input[type="email"]').css("border", "0px solid");
+        if(!regex.test($('input[type="email"]').val())){
+            console.log("Please enter a valid email");  
+            
+            $('#emailid').css("visibility","visible");
+            $("#email_id_legend").css('visibility', "visible");
+            $("#email_id_legend").css('color', "red");     
+            $("#email_id_fieldset").css('border', "1px solid red");
+        }else{
+            console.log("Correct Email");
+            $('#emailid').css("visibility","hidden");
+            $("#email_id_legend").css('visibility', "visible");
+            $("#email_id_legend").css('color', "#cfd8dc");
+            $("#email_id_fieldset").css('border', "1px solid #cfd8dc");
+            
+        }
+    }); 
+    $('input[type="tel"]').on('keyup',function(e){
+      var regex = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+      $('input[type="tel"]').css("border", "0px solid");  
+      if(!regex.test($('input[type="tel"]').val())){
+            console.log("Please enter a valid number");   
+            $('#number').css("visibility","visible");
+            $("#mobile_legend").css('visibility', "visible");
+            $("#mobile_legend").css('color', "red");     
+            
+            $("#mobile_filedset").css('border', "1px solid red");
+        }else{
+            console.log("Correct Number"); 
+            $('#number').css("visibility","hidden");
+            $("#mobile_legend").css('visibility', "visible");
+            $("#mobile_legend").css('color', "#cfd8dc");
+            $("#mobile_filedset").css('border', "1px solid #cfd8dc");
+            
+        }
+    });
+       
+}); 
+</script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class=" col-lg-6 block_one center ">
+            <h3 style="font-family: sans-serif;"><strong>UPSC</strong> PATHSHALA</h3>
+            <p><strong>Best Online Coaching for UPSC Preparation</strong></p>
+            <img src="images/Capture.jpg" alt="Image" style="width:100%;height:50%;">
+        </div>
+        
+        <div class="col-lg-6 col-md-12 block_two center">          
+            <div class="form-style">
+                  <form id="form">  
+                      <h3 style="text-align: center">Book a Free Demo Class</h3>
+                      <h4 style="text-align: center;color:red;">Limited Seats Only!</h4><br/><br/>
+                      <fieldset id= "mobile_filedset" class="">
+                          <legend class="w-auto" id="mobile_legend">Mobile Number</legend>
+                        <input type="tel" name="number" id="numbers" placeholder="Enter Mobile Number">
+                      </fieldset>
+                      <span id="number" >Please enter a valid mobile number</span><br>
+
+                      <fieldset class="" id="full_name_fieldset">
+                          <legend class="w-auto" id="full_name_legend" >Full Name</legend>
+                          <input type="text" name="full_name" id="full_name" placeholder="Enter Full Name">
+                      </fieldset>
+                      <span id="fname" >Please enter a valid name</span><br>
+
+                      <fieldset class="" id="email_id_fieldset">
+                          <legend class="w-auto" id="email_id_legend">Email id</legend>
+                        <input type="email" name="email_id" id="email_id" placeholder="Enter E-Mail ID">
+                      </fieldset>
+                      <span id="emailid" >Please enter a valid email id</span><br>
+
+                      <fieldset>
+                        <label>What describes you best?</label>
+                          <select>
+                            <option style="color:#cfd8dc;">Select options</option>
+                            <div class="dropdown-content">
+                                <option value="College Student">College Student</option>
+                                <option value="Working Professional">Working Professional</option>
+                                <option value="Full time aspirant">Full time aspirant</option>
+                                <option value="Other">Other</option> 
+                            </div>     
+                          </select>
+                      </fieldset>     
+                      <br><br>
+                      <fieldset>
+                          <button class="button" value="Submit">Submit</button>
+                      </fieldset>
+                      <br>
+                      <fieldset>
+                          <h6>By clicking 'Submit' button,you explicitly solicit a call & email from uFaber</h6>
+                      </fieldset><br>
+                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+</body>
+</html>
